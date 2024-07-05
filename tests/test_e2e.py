@@ -7,7 +7,9 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 
+from pageObjects.CheckoutPage import CheckOutPage
 from pageObjects.HomePage import HomePage
+from pageObjects.PurchasePage import PurchasePage
 from pageObjects.ShopPage import ShopPage
 from utilities.BaseClass import BaseClass
 
@@ -24,22 +26,28 @@ class TestE2E(BaseClass):
 
         shopPage = ShopPage(self.driver)
         items = shopPage.getItems()
-
         for item in items:
             itemName = item.find_element(By.CSS_SELECTOR, "div h4").text
             # itemName = item.shopPage.getItemName().text
             if itemName == "Blackberry":
                 item.find_element(By.CSS_SELECTOR, "div button").click()
-
         # self.driver.find_element(By.CSS_SELECTOR, ".btn-primary").click()
         shopPage.getCheckoutBtn().click()
 
-        self.driver.find_element(By.CSS_SELECTOR, ".btn-success").click()
-        self.driver.find_element(By.CSS_SELECTOR, ".checkbox").click()
+        # self.driver.find_element(By.CSS_SELECTOR, ".btn-success").click()
+        checkout = CheckOutPage(self.driver)
+        checkout.checkoutBtn().click()
 
-        self.driver.find_element(By.ID, 'country').send_keys("ind")
+        # self.driver.find_element(By.CSS_SELECTOR, ".checkbox").click()
+        # self.driver.find_element(By.ID, 'country').send_keys("ind")
+        purchasePage = PurchasePage(self.driver)
+        purchasePage.getCheckbox().click()
+        purchasePage.typeCountry().send_keys("ind")
         wait.until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '.suggestions ul li a')))
-        self.driver.find_element(By.LINK_TEXT, 'India').click()
-        self.driver.find_element(By.CSS_SELECTOR, "[value='Purchase']").click()
-        successMsg = self.driver.find_element(By.CSS_SELECTOR, ".alert").text
+        # self.driver.find_element(By.LINK_TEXT, 'India').click()
+        # self.driver.find_element(By.CSS_SELECTOR, "[value='Purchase']").click()
+        # successMsg = self.driver.find_element(By.CSS_SELECTOR, ".alert").text
+        purchasePage.selectCountry().click()
+        purchasePage.getPurchaseBtn().click()
+        successMsg = purchasePage.getMessage().text
         assert "Success! Thank you" in successMsg
