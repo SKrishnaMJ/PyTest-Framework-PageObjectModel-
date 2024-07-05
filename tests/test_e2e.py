@@ -20,8 +20,9 @@ class TestE2E(BaseClass):
         homePage = HomePage(self.driver)
         shopPage = homePage.gotoShop()
 
-        wait = WebDriverWait(self.driver, 20)
-        wait.until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '.btn-primary')))
+        # wait = WebDriverWait(self.driver, 20)
+        # wait.until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '.btn-primary')))
+        self.verifyElePresence('.btn-primary')
         time.sleep(3)
 
         # shopPage = ShopPage(self.driver)
@@ -43,7 +44,8 @@ class TestE2E(BaseClass):
         # purchasePage = PurchasePage(self.driver)
         purchasePage.getCheckbox().click()
         purchasePage.typeCountry().send_keys("ind")
-        wait.until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '.suggestions ul li a')))
+        # wait.until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '.suggestions ul li a')))
+        self.verifyElePresence('.suggestions ul li a')
         # self.driver.find_element(By.LINK_TEXT, 'India').click()
         # self.driver.find_element(By.CSS_SELECTOR, "[value='Purchase']").click()
         # successMsg = self.driver.find_element(By.CSS_SELECTOR, ".alert").text
