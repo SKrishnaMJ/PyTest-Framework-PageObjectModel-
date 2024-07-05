@@ -8,6 +8,7 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 
 from pageObjects.HomePage import HomePage
+from pageObjects.ShopPage import ShopPage
 from utilities.BaseClass import BaseClass
 
 
@@ -15,19 +16,24 @@ class TestE2E(BaseClass):
     def test_e2e(self):
 
         homePage = HomePage(self.driver)
-
         homePage.gotoShop().click()
+
         wait = WebDriverWait(self.driver, 20)
         wait.until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '.btn-primary')))
         time.sleep(3)
-        items = self.driver.find_elements(By.CSS_SELECTOR, "app-card")
+
+        shopPage = ShopPage(self.driver)
+        items = shopPage.getItems()
 
         for item in items:
             itemName = item.find_element(By.CSS_SELECTOR, "div h4").text
+            # itemName = item.shopPage.getItemName().text
             if itemName == "Blackberry":
                 item.find_element(By.CSS_SELECTOR, "div button").click()
 
-        self.driver.find_element(By.CSS_SELECTOR, ".btn-primary").click()
+        # self.driver.find_element(By.CSS_SELECTOR, ".btn-primary").click()
+        shopPage.getCheckoutBtn().click()
+
         self.driver.find_element(By.CSS_SELECTOR, ".btn-success").click()
         self.driver.find_element(By.CSS_SELECTOR, ".checkbox").click()
 
