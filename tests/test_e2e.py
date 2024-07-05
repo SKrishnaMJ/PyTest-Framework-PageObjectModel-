@@ -7,13 +7,16 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 
+from pageObjects.HomePage import HomePage
 from utilities.BaseClass import BaseClass
 
 
 class TestE2E(BaseClass):
     def test_e2e(self):
 
-        self.driver.find_element(By.LINK_TEXT, "Shop").click()
+        homePage = HomePage(self.driver)
+
+        homePage.gotoShop().click()
         wait = WebDriverWait(self.driver, 20)
         wait.until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '.btn-primary')))
         time.sleep(3)
