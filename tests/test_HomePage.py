@@ -6,6 +6,7 @@ from utilities.BaseClass import BaseClass
 
 class TestHomepage(BaseClass):
     def test_FormSubmission(self):
+
         homePage = HomePage(self.driver)
         homePage.getName().send_keys("Sai Krishna M J")
         homePage.getEmail().send_keys("saik@gmail.com")
@@ -13,8 +14,7 @@ class TestHomepage(BaseClass):
         homePage.getCheckbox().click()
 
         # Select class to handle static dropdown
-        dropdown = Select(homePage.getDropdown())
-        dropdown.select_by_visible_text("Female")
+        self.selectByVisibleText(homePage.getDropdown(), "Female")
 
         homePage.getRadioBtn().click()
 
