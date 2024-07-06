@@ -2,6 +2,7 @@ import pytest
 from selenium.webdriver.support.select import Select
 
 from pageObjects.HomePage import HomePage
+from testData.HomePageData import HomepageData
 from utilities.BaseClass import BaseClass
 
 
@@ -9,13 +10,13 @@ class TestHomepage(BaseClass):
     def test_FormSubmission(self, getData):
 
         homePage = HomePage(self.driver)
-        homePage.getName().send_keys(getData[0])
-        homePage.getEmail().send_keys(getData[1])
-        homePage.getPassword().send_keys(getData[2])
+        homePage.getName().send_keys(getData["firstname"])
+        homePage.getEmail().send_keys(getData["email"])
+        homePage.getPassword().send_keys(getData["password"])
         homePage.getCheckbox().click()
 
         # Select class to handle static dropdown
-        self.selectByVisibleText(homePage.getDropdown(), getData[3])
+        self.selectByVisibleText(homePage.getDropdown(), getData["gender"])
 
         homePage.getRadioBtn().click()
 
@@ -26,8 +27,11 @@ class TestHomepage(BaseClass):
 
         # to pass or fail tests we use assert class
         assert "Success" in message
+        # refresh is used here because we are invoking the website only once through our fxiture whose scope is class and hence
+        # with mutliple datasets it starts concatinating to the previous data set on the from and thats why at the end we refresh the driver
+        # so that it starts with the next data set afresh
         self.driver.refresh()
 
-    @pytest.fixture(params=[("Sai Krishna", "saik@gmail.com", "12345", "Male"), ("Ritika G", "rg001@gmail.com", "87654", "Female")])
+    @pytest.fixture(params=HomepageData.data)
     def getData(self, request):
         return request.param
