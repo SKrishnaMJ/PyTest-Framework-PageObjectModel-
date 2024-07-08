@@ -9,7 +9,10 @@ from utilities.BaseClass import BaseClass
 class TestHomepage(BaseClass):
     def test_FormSubmission(self, getData):
 
+        logger = self.getLogger()
+
         homePage = HomePage(self.driver)
+        logger.info("The firstname used is " +getData["firstname"])
         homePage.getName().send_keys(getData["firstname"])
         homePage.getEmail().send_keys(getData["email"])
         homePage.getPassword().send_keys(getData["password"])
@@ -23,7 +26,7 @@ class TestHomepage(BaseClass):
         # Xpath Syntax - //tagname[@attribute_name='value'] --> //input[@type='submit']
         homePage.getSubmitBtn().click()
         message = homePage.getMessage().text
-        print(message)
+        logger.info("The message is" +message)
 
         # to pass or fail tests we use assert class
         assert "Success" in message

@@ -17,6 +17,8 @@ from utilities.BaseClass import BaseClass
 class TestE2E(BaseClass):
     def test_e2e(self):
 
+        logger = self.getLogger()
+
         homePage = HomePage(self.driver)
         shopPage = homePage.gotoShop()
 
@@ -44,6 +46,7 @@ class TestE2E(BaseClass):
         # purchasePage = PurchasePage(self.driver)
         purchasePage.getCheckbox().click()
         purchasePage.typeCountry().send_keys("ind")
+        logger.info("searching for India and selecting India")
         # wait.until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '.suggestions ul li a')))
         self.verifyElePresence('.suggestions ul li a')
         # self.driver.find_element(By.LINK_TEXT, 'India').click()
@@ -52,4 +55,5 @@ class TestE2E(BaseClass):
         purchasePage.selectCountry().click()
         purchasePage.getPurchaseBtn().click()
         successMsg = purchasePage.getMessage().text
+        logger.info("The success message is" +successMsg)
         assert "Success! Thank you" in successMsg

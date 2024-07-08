@@ -1,0 +1,15 @@
+2024-07-08 08:24:00,871 :INFO :test_e2e :searching for India and selecting India
+2024-07-08 08:24:05,965 :INFO :test_e2e :The success message is×
+Success! Thank you! Your order will be delivered in next few weeks :-).
+2024-07-08 08:28:07,630 :INFO :test_FormSubmission :The firstname used is Sai Krishna
+2024-07-08 08:28:07,955 :INFO :test_FormSubmission :The message is×
+Success! The Form has been submitted successfully!.
+2024-07-08 08:28:08,423 :INFO :test_FormSubmission :The firstname used is Ritika G
+2024-07-08 08:28:08,423 :INFO :test_FormSubmission :The firstname used is Ritika G
+2024-07-08 08:28:08,631 :INFO :test_FormSubmission :The message is×
+Success! The Form has been submitted successfully!.
+2024-07-08 08:28:08,631 :INFO :test_FormSubmission :The message is×
+Success! The Form has been submitted successfully!.
+2024-07-08 08:28:17,471 :INFO :test_e2e :searching for India and selecting India
+2024-07-08 08:28:22,566 :INFO :test_e2e :The success message is×
+Success! Thank you! Your order will be delivered in next few weeks :-).
