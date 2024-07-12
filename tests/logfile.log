@@ -13,3 +13,30 @@ Success! The Form has been submitted successfully!.
 2024-07-08 08:28:17,471 :INFO :test_e2e :searching for India and selecting India
 2024-07-08 08:28:22,566 :INFO :test_e2e :The success message is×
 Success! Thank you! Your order will be delivered in next few weeks :-).
+2024-07-11 11:57:22,210 :INFO :test_FormSubmission :The firstname used is Sai Krishna
+2024-07-11 11:57:24,548 :INFO :test_FormSubmission :The message is×
+Success! The Form has been submitted successfully!.
+2024-07-11 11:57:25,047 :INFO :test_FormSubmission :The firstname used is Ritika G
+2024-07-11 11:57:25,047 :INFO :test_FormSubmission :The firstname used is Ritika G
+2024-07-11 11:57:25,213 :INFO :test_FormSubmission :The message is×
+Success! The Form has been submitted successfully!.
+2024-07-11 11:57:25,213 :INFO :test_FormSubmission :The message is×
+Success! The Form has been submitted successfully!.
+2024-07-11 11:57:35,330 :INFO :test_e2e :searching for India and selecting India
+2024-07-11 11:57:40,437 :INFO :test_e2e :The success message is×
+Success! Thank you! Your order will be delivered in next few weeks :-).
+2024-07-11 12:04:37,814 :INFO :test_FormSubmission :The firstname used is Sai Krishna
+2024-07-11 12:04:38,145 :INFO :test_FormSubmission :The message is×
+Success! The Form has been submitted successfully!.
+2024-07-11 12:04:38,453 :INFO :test_FormSubmission :The firstname used is Ritika G
+2024-07-11 12:04:38,453 :INFO :test_FormSubmission :The firstname used is Ritika G
+2024-07-11 12:04:38,662 :INFO :test_FormSubmission :The message is×
+Success! The Form has been submitted successfully!.
+2024-07-11 12:04:38,662 :INFO :test_FormSubmission :The message is×
+Success! The Form has been submitted successfully!.
+2024-07-11 12:04:48,082 :INFO :test_e2e :searching for India and selecting India
+2024-07-11 12:04:53,180 :INFO :test_e2e :The success message is×
+Success! Thank you! Your order will be delivered in next few weeks :-).
+2024-07-12 16:45:28,463 :INFO :test_FormSubmission :The firstname used is Sai
+2024-07-12 16:45:28,817 :INFO :test_FormSubmission :The message is×
+Success! The Form has been submitted successfully!.

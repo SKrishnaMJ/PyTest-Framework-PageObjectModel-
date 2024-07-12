@@ -12,14 +12,14 @@ class TestHomepage(BaseClass):
         logger = self.getLogger()
 
         homePage = HomePage(self.driver)
-        logger.info("The firstname used is " +getData["firstname"])
-        homePage.getName().send_keys(getData["firstname"])
-        homePage.getEmail().send_keys(getData["email"])
-        homePage.getPassword().send_keys(getData["password"])
+        logger.info("The firstname used is " +getData['firstname'])
+        homePage.getName().send_keys(getData['firstname'])
+        homePage.getEmail().send_keys(getData['email'])
+        homePage.getPassword().send_keys(getData['password'])
         homePage.getCheckbox().click()
 
         # Select class to handle static dropdown
-        self.selectByVisibleText(homePage.getDropdown(), getData["gender"])
+        self.selectByVisibleText(homePage.getDropdown(), getData['gender'])
 
         homePage.getRadioBtn().click()
 
@@ -35,6 +35,6 @@ class TestHomepage(BaseClass):
         # so that it starts with the next data set afresh
         self.driver.refresh()
 
-    @pytest.fixture(params=HomepageData.data)
+    @pytest.fixture(params=HomepageData.getTestData("Test1"))
     def getData(self, request):
         return request.param
